@@ -1,0 +1,29 @@
+{
+  "name": "wentop",
+  "version": "1.0.0",
+  "description": "Интернет-магазин \"Wentop - вертикальные пылесосы\"",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-tinypng-compress": "^1.2.5"
+  },
+  "devDependencies": {
+    "gulp-clean-css": "^4.2.0",
+    "gulp-minify": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViperPredator1992/wentop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ViperPredator1992/wentop/issues"
+  },
+  "homepage": "https://github.com/ViperPredator1992/wentop#readme"
+}
