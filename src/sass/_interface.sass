@@ -1,0 +1,48 @@
+$headerTopHeight: 59px
+
+*,
+*::before,
+*::after
+    box-sizing: border-box
+    outline: none
+body
+    font-family: 'Exo 2', sans-serif
+    font-size: 16px
+    font-weight: normal
+    background-color: $body
+.container
+    max-width: 1230px
+    padding: 0 15px
+    margin: auto
+button
+    &:hover
+        cursor: pointer    
+img
+    max-width: 100%
+    display: block
+a
+    text-decoration: none
+    display: block 
+.input
+    width: 100%       
+.select
+    position: relative
+    width: 114px
+    & select
+        background: none
+        border: none
+        appearance: none
+        font-size: 15px     
+        color: $headerTopText
+        padding: 5px 30px
+    &::after
+        content: url(../img/arrow_down.png)
+        right: 5px
+    &::before
+        content: url(../img/geo.png)
+        left: 5px
+    &::after,
+    &::before    
+        pointer-events: none
+        position: absolute
+        top: 3px

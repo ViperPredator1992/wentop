@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'Exo 2';
+    font-display: swap;
+    src: url('../fonts/Exo2-SemiBold.eot');
+    src: local('Exo 2 SemiBold'), local('Exo2-SemiBold'),
+        url('../fonts/Exo2-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Exo2-SemiBold.woff2') format('woff2'),
+        url('../fonts/Exo2-SemiBold.woff') format('woff'),
+        url('../fonts/Exo2-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Exo 2';
+    font-display: swap;
+    src: url('../fonts/Exo2-Italic.eot');
+    src: local('Exo 2 Italic'), local('Exo2-Italic'),
+        url('../fonts/Exo2-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Exo2-Italic.woff2') format('woff2'),
+        url('../fonts/Exo2-Italic.woff') format('woff'),
+        url('../fonts/Exo2-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Exo 2';
+    font-display: swap;
+    src: url('../fonts/Exo2-Regular.eot');
+    src: local('Exo 2 Regular'), local('Exo2-Regular'),
+        url('../fonts/Exo2-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Exo2-Regular.woff2') format('woff2'),
+        url('../fonts/Exo2-Regular.woff') format('woff'),
+        url('../fonts/Exo2-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Exo 2';
+    font-display: swap;
+    src: url('../fonts/Exo2-ExtraBold.eot');
+    src: local('Exo 2 ExtraBold'), local('Exo2-ExtraBold'),
+        url('../fonts/Exo2-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Exo2-ExtraBold.woff2') format('woff2'),
+        url('../fonts/Exo2-ExtraBold.woff') format('woff'),
+        url('../fonts/Exo2-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Exo 2';
+    font-display: swap;
+    src: url('../fonts/Exo2-Bold.eot');
+    src: local('Exo 2 Bold'), local('Exo2-Bold'),
+        url('../fonts/Exo2-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Exo2-Bold.woff2') format('woff2'),
+        url('../fonts/Exo2-Bold.woff') format('woff'),
+        url('../fonts/Exo2-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Exo 2';
+    font-display: swap;
+    src: url('../fonts/Exo2-Light.eot');
+    src: local('Exo 2 Light'), local('Exo2-Light'),
+        url('../fonts/Exo2-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Exo2-Light.woff2') format('woff2'),
+        url('../fonts/Exo2-Light.woff') format('woff'),
+        url('../fonts/Exo2-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Exo 2';
+    font-display: swap;
+    src: url('../fonts/Exo2-Black.eot');
+    src: local('Exo 2 Black'), local('Exo2-Black'),
+        url('../fonts/Exo2-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Exo2-Black.woff2') format('woff2'),
+        url('../fonts/Exo2-Black.woff') format('woff'),
+        url('../fonts/Exo2-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-display: swap;
+    src: url('../fonts/Montserrat-Regular.eot');
+    src: local('Montserrat Regular'), local('Montserrat-Regular'),
+        url('../fonts/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Montserrat-Regular.woff2') format('woff2'),
+        url('../fonts/Montserrat-Regular.woff') format('woff'),
+        url('../fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-display: swap;
+    src: url('../fonts/Montserrat-Bold.eot');
+    src: local('Montserrat Bold'), local('Montserrat-Bold'),
+        url('../fonts/Montserrat-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Montserrat-Bold.woff2') format('woff2'),
+        url('../fonts/Montserrat-Bold.woff') format('woff'),
+        url('../fonts/Montserrat-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Incised 901';
+    font-display: swap;
+    src: url('../fonts/Incised901BT-NordItalic.eot');
+    src: local('Incised 901 Nord Italic'), local('Incised901BT-NordItalic'),
+        url('../fonts/Incised901BT-NordItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Incised901BT-NordItalic.woff2') format('woff2'),
+        url('../fonts/Incised901BT-NordItalic.woff') format('woff'),
+        url('../fonts/Incised901BT-NordItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
