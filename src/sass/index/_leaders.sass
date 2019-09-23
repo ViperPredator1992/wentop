@@ -1,0 +1,104 @@
+.leaders
+    &__title
+        border-top: 9px solid $grey
+        font-size: 36px
+        font-weight: 700
+        color: $body
+        position: relative
+        z-index: 2
+        margin: 0
+        padding-top: 10px
+        text-align: center
+    &__line
+        position: relative    
+        &::after
+            content: ''
+            background: url(../img/title.png) no-repeat
+            max-width: 431px
+            height: 80px
+            width: 100%
+            position: absolute
+            top: -60px
+            left: 50%
+            transform: translateX(-50%)
+            z-index: 0
+    &-block
+        padding-top: 60px
+        margin-top: -60px
+        background-color: $headerTop  
+.card
+    flex-basis: 32%
+    padding: 24px 17px 17px
+    background-color: $white
+    margin-bottom: 30px
+    transition: .3s
+    &:hover
+        box-shadow: 0 0 25px 2px rgba(61, 201, 223, 0.34)
+    &__title
+        font-size: 20px
+        font-weight: 700
+        line-height: 24px
+        color: $cardTitle
+        margin: 0 0 10px
+    &__article
+        font-size: 14px
+        font-weight: 400
+        line-height: 30px
+        color: $cardArticle  
+        margin-bottom: 15px
+        display: block 
+    &__image
+        margin: 0 auto 40px
+    &-click
+        display: flex
+        & img
+            margin-right: 20px
+        & span
+            font-size: 15px
+            color: $headerTopText    
+        &s
+            display: flex
+            justify-content: space-between 
+    &-btns
+        display: flex
+        justify-content: space-between
+        & button
+            width: 166px
+            height: 55px 
+            text-transform: uppercase  
+            border-radius: 3px 
+            font-weight: 700 
+        &__cart
+            box-shadow: 0 3px 9px rgba(255, 192, 0, 0.64), inset 0 0 2px $white
+            border: 1px solid $white
+            background-image: linear-gradient(-225deg, $yellow 0%, #f9f0a8 50%, #ffcc01 100%)
+            &::before
+                content: url(../img/btn-cart.png)
+                display: inline-block
+                vertical-align: sub
+                margin-right: 5px
+        &__click
+            box-shadow: 0 2px 4px rgba(38, 169, 16, 0.5), inset 0 0 2px $white
+            border: 1px solid $white
+            background-image: linear-gradient(-225deg, #5cd35e 0%, #b5ffc5 43%, #5ad25c 99%, #5ad25c 100%)               
+    &s
+        padding-top: 54px
+        margin: 0 15px
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+    &-prices
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin: 22px 0    
+        &__name
+            color: $cardTitle 
+        &__old
+            margin-right: 4px
+            font-size: 23px
+            color: $hoverMenu
+        &__new
+            font-size: 30px
+            font-weight: 700 
+            color: $red 
