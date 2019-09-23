@@ -1,0 +1,182 @@
+.slick
+    &-center
+        max-width: 1200px
+        border-left: 6px solid $white
+        border-right: 6px solid $white
+        opacity: 1 !important
+        & .slide
+            &-block
+                &s
+                    opacity: 1 !important
+    &-slide
+        opacity: .65
+        & .slide
+            &-block
+                &s
+                    opacity: 0 
+    &-dots
+        position: absolute
+        left: 25%
+        bottom: 60px
+        margin: 0
+        padding: 0
+        display: flex         
+        list-style: none
+        & li
+            width: 11px
+            height: 11px
+            border-radius: 50%
+            border: 2px solid $white
+            margin: 0 10px
+            cursor: pointer
+            &:first-child
+                margin: 0 10px 0 0
+            &:last-child
+                margin: 0 0 0 10px    
+            & button
+                display: none
+        & .slick
+            &-active
+                box-shadow: 0 0 16px 2px $dotShadow
+                border: 2px solid $dotBorder                     
+.banner
+    position: relative
+    &-slide
+        &__item
+            position: relative
+        &__image
+            height: 501px 
+.arrows
+    &__left,
+    &__right
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 63px
+        height: 63px
+        border-radius: 3px
+        border: 1px solid $hoverMenuBg
+        transition: .3s
+        cursor: pointer
+        &:hover
+            box-shadow: inset 0 0 2px $white
+            border: 1px solid $white
+            background-color: $hoverMenuBg
+            background-image: linear-gradient(-225deg, #ffcd04 0%, #f9f0a8 50%, #ffcc01 100%)
+    &__left,
+    &__right
+        &_image
+            background: url(../img/arrow.png) no-repeat
+            width: 21px
+            height: 17px 
+        &:hover
+            & .arrows
+                &__left,
+                &__right
+                    &_image
+                        background: url(../img/arrow-hover.png) no-repeat      
+    &__left
+        left: 120px    
+    &__right
+        right: 120px
+        transform: rotate(180deg)        
+.slide
+    &-block
+        &:nth-child(2)
+            width: 206px
+            height: 206px
+            background-color: $white
+            border-radius: 50%
+            display: flex
+            align-items: center
+            justify-content: center
+            flex-direction: column
+            margin-top: 230px
+        &:last-child
+            position: relative
+            &::after
+                content: ''   
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%)
+                background: url(../img/blur.png) no-repeat
+                min-width: 407px
+                width: 100%
+                height: 430px    
+        &__title
+            font-size: 65px
+            font-weight: 800
+            line-height: 60px
+            color: $white
+            margin: 70px 0 36px
+            max-width: 502px
+        &__subtitle
+            font-size: 28px
+            color: $white 
+            max-width: 490px 
+            margin: 0 0 66px
+        &__link
+            font-size: 18px
+            font-weight: 700
+            color: $linkMore
+            &::after
+                content: url(../img/arrow_link.png)
+                display: inline-block
+                vertical-align: middle
+                margin-left: 9px
+        &__image
+            margin-top: 13px 
+            position: relative
+            z-index: 20 
+        &s
+            position: absolute
+            top: 0
+            left: 0
+            z-index: 20
+            display: flex
+            justify-content: space-between
+            padding-left: 100px
+            max-width: 1060px
+            width: 100%
+            &::before
+                content: ''
+                background: url(../img/slide-bg.png) no-repeat
+                min-width: 841px
+                height: 501px
+                position: absolute        
+                top: 0
+                left: 0
+                opacity: .7
+                z-index: -1
+.super
+    &-price
+        font-size: 20px
+        font-weight: 700
+        color: $red  
+        margin-bottom: 8px
+.new
+    &-price
+        margin: 0 0 14px
+        color: $red  
+        font-size: 48px
+        font-weight: 700
+.old
+    &-price
+        font-size: 25px
+        margin: 0
+        color: $linkMore
+        position: relative
+        &::after
+            content: ''
+            background: url(../img/red-line.png) no-repeat        
+            min-width: 102px
+            height: 2px
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%)
+            
