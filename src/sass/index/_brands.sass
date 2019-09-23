@@ -1,0 +1,41 @@
+.brands
+    padding: 5px 0
+    background-color: $white
+    &_link
+        
+        &::after
+            content: url(../img/arrow_brand.png)
+            margin-left: 15px
+            display: inline-block
+            vertical-align: middle
+    &-list
+        margin: 0
+        padding: 0 5px
+        list-style: none
+        display: flex
+        flex-wrap: wrap
+        &__item
+            flex-basis: 25%
+            &:first-child
+                & .brands
+                    &-list
+                        &__link
+                            font-size: 24px
+                            font-weight: 700
+                            color: $white
+                            box-shadow: 0 2px 9px rgba(0, 0, 0, 0.24)
+                            background-color: $linkMore
+                            background-image: linear-gradient(-236deg, $linkMore 0%, #3dcce2 51%, #3ba5b5 100%) 
+        &__link
+            box-shadow: 0 1px 2px rgba(52, 71, 86, 0.52), inset 0 0 1px rgba(255, 255, 255, 0.75)
+            background-color: $linkMore
+            background-image: linear-gradient(17deg, $headerTop 0%, $white 72%, $white 100%)  
+            height: 93px
+            display: flex
+            align-items: center
+            justify-content: center
+            transition: .3s
+            position: relative
+            &:hover
+                z-index: 1
+                box-shadow: 0 1px 21px 1px rgba(59, 165, 181, 0.71)
