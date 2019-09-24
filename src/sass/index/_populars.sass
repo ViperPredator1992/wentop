@@ -1,0 +1,84 @@
+.populars
+    &-block
+        padding: 55px 0
+        background-color: $white
+        position: relative
+    &__title
+        padding-bottom: 15px
+        margin: 0 0 40px
+    &-slide
+        margin-bottom: 40px
+        & .slick-slide
+            opacity: 1
+        & .slick-dots
+            left: 50%
+            bottom: -50px
+            transform: translateX(-50%)
+            & li
+                border: 2px solid $popularDots
+            & .slick-active
+                border: 2px solid $dotBorder 
+        
+        &__left
+            position: absolute
+            left: -120px 
+            top: 50% 
+            transform: translateY(-50%)
+            display: flex
+            align-items: center
+            justify-content: center
+            width: 63px
+            height: 63px
+            border-radius: 3px
+            border: 1px solid $white
+            transition: .3s
+            cursor: pointer
+            &:hover
+                box-shadow: inset 0 0 2px $white
+                border: 1px solid $white
+                background-color: $hoverMenuBg
+                background-image: linear-gradient(-225deg, #ffcd04 0%, #f9f0a8 50%, #ffcc01 100%)
+        &__right
+            position: absolute
+            top: 50%
+            right: -120px
+            transform: translateY(-50%)
+            display: flex
+            align-items: center
+            justify-content: center
+            width: 63px
+            height: 63px
+            border-radius: 3px
+            border: 1px solid $white
+            transition: .3s
+            cursor: pointer
+            &:hover
+                box-shadow: inset 0 0 2px $white
+                border: 1px solid $white
+                background-color: $hoverMenuBg
+                background-image: linear-gradient(-225deg, #ffcd04 0%, #f9f0a8 50%, #ffcc01 100%)
+        &__left
+            &_image
+                background: url(../img/arrow.png) no-repeat
+                width: 21px
+                height: 17px
+        &__right
+            &_image
+                background: url(../img/arrow.png) no-repeat
+                width: 21px
+                height: 17px 
+                transform: rotate(180deg)
+            &:hover
+                & .arrows
+                    &__left,
+                    &__right
+                        &_image
+                            background: url(../img/arrow-hover.png) no-repeat          
+    & .card
+        flex-basis: auto
+        height: auto
+        max-width: 370px
+        margin: auto
+        &:hover
+            z-index: 10  
+            box-shadow: none             

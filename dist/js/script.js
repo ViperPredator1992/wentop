@@ -25,10 +25,29 @@ $(document).ready(function () {
                 centerPadding: '40px',
                 slidesToShow: 1
             }
-        }
-        ],
+        }],
         prevArrow: $('.arrows__left'),
         nextArrow: $('.arrows__right')
+    });
+
+    $('.populars-slide').slick({
+        dots: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        responsive: [{
+            breakpoint: 1456,
+            settings: {
+                slidesToShow: 2
+            },
+            breakpoint: 1031,
+            settings: {
+                slidesToShow: 1
+            }
+        }],
+        prevArrow: $('.populars-slide__left'),
+        nextArrow: $('.populars-slide__right')
     });
 
 });

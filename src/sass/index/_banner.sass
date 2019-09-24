@@ -66,12 +66,17 @@
             border: 1px solid $white
             background-color: $hoverMenuBg
             background-image: linear-gradient(-225deg, #ffcd04 0%, #f9f0a8 50%, #ffcc01 100%)
-    &__left,
-    &__right
+    &__left
         &_image
             background: url(../img/arrow.png) no-repeat
             width: 21px
             height: 17px 
+    &__right
+        &_image
+            background: url(../img/arrow.png) no-repeat
+            width: 21px
+            height: 17px
+            transform: rotate(180deg) 
         &:hover
             & .arrows
                 &__left,
@@ -82,7 +87,7 @@
         left: 120px    
     &__right
         right: 120px
-        transform: rotate(180deg)        
+               
 .slide
     &-block
         &:nth-child(2)

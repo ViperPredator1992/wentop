@@ -22,6 +22,10 @@
         &-block
             &s
                 padding-left: 47px                               
+@media (max-width: 1455px)
+    .populars
+        & .container
+            max-width: 1000px
 @media (max-width: 1400px)
     .search
         &-form
@@ -82,7 +86,8 @@
             z-index: 30
     .header,
     .brands,
-    .leaders
+    .leaders,
+    .populars
         & .container
             max-width: 800px
     .slick
@@ -160,7 +165,14 @@
                 height: 68px 
     .card
         flex-basis: 48%                                              
+@media (max-width: 1030px)
+    .populars
+        & .container
+            max-width: 740px 
 @media (max-width: 980px) 
+    .populars
+        & .container
+            max-width: 550px
     .header
         & .container
             max-width: 550px
@@ -267,7 +279,14 @@
         flex-basis: 100% 
         &-btns
             & button
-                width: 45%                                                            
+                width: 45% 
+    .populars
+        & .container
+            max-width: 500px
+        &-slide
+            &__right,
+            &__left 
+                display: none !important                                                                                
 @media (max-width: 700px)
     .slide
         &-block
@@ -377,7 +396,10 @@
         &:hover
             & .card
                 &-description
-                    bottom: -160px                                                                                                               
+                    bottom: -160px 
+    .section-title
+        font-size: 22px
+        line-height: normal                                                                                                                                  
 @media (max-width: 395px)
     .card
         height: 780px
