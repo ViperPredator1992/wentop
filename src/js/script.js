@@ -54,6 +54,31 @@ $(document).ready(function () {
         ]
     });
 
+    $('.watched-slide').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplaySpeed: 3000,
+        dots: true,
+        prevArrow: $('.watched-slide__left'),
+        nextArrow: $('.watched-slide__right'),
+        responsive: [
+            {
+                breakpoint: 1201,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }                
+            }, 
+            {
+                breakpoint: 981,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+            }
+        ]
+    });
+    
     $('.picked-slide').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
