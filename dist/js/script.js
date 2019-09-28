@@ -31,23 +31,52 @@ $(document).ready(function () {
     });
 
     $('.populars-slide').slick({
-        dots: true,
         slidesToShow: 3,
         slidesToScroll: 1,
-        autoplay: true,
         autoplaySpeed: 3000,
-        responsive: [{
-            breakpoint: 1456,
-            settings: {
-                slidesToShow: 2
-            },
-            breakpoint: 1031,
-            settings: {
-                slidesToShow: 1
-            }
-        }],
+        dots: true,
         prevArrow: $('.populars-slide__left'),
-        nextArrow: $('.populars-slide__right')
+        nextArrow: $('.populars-slide__right'),
+        responsive: [{
+                breakpoint: 1201,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 981,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
+    $('.picked-slide').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplaySpeed: 3000,
+        dots: true,
+        prevArrow: $('.pickes-slide__left'),
+        nextArrow: $('.pickes-slide__right'),
+        responsive: [
+            {
+                breakpoint: 1201,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }                
+            }, 
+            {
+                breakpoint: 981,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+            }
+        ]
     });
 
 });

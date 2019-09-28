@@ -1,0 +1,119 @@
+﻿# Модуль для CMS OpenCart (ocStore) версии 2.3
+# ProgRoman - CityManager
+# Автор Роман Шипилов https://opencartforum.com/user/28285-progroman/
+
+  
+										УСТАНОВКА
+										
+1. 	Скопируйте в корень сайта содержимое папки upload.
+
+2. 	Зайдите в установщик модулей OpenCart (http://ВАШ_САЙТ/admin/index.php?route=extension/installer),
+	загрузите файл citymanager.ocmod.xml.
+
+3. 	Включите модуль в админке. В редактировании модуля введите лицензионный ключ,
+	загрузите базу IP-адресов и необходимые базы городов.
+
+4. 	В любом шаблоне в том месте, где нужно вывести модуль, вставьте код:
+	<div class="prmn-cmngr"><?= $prmn_cmngr ?></div>
+	Отредактируйте CSS-стили под тему своего шаблона в файле /catalog/view/javascript/progroman/progroman.city-manager.css
+	Если модуль не отображается, попробуйте обновить модификаторы в разделе Менеджер дополнений (Модификаторы/Modification)
+	http://ВАШ_САЙТ/admin/index.php?route=extension/modification
+
+
+											FAQ
+
+После установки модуля сайт не работает: белый экран или Ошибка HTTP 500 (Internal Server Error)
+
+		Белый экран говорит о том, что произошла серьезная ошибка в коде, но вывод ошибок отключен. 
+		Сначала нужно понять причину ошибки, для этого включаем вывод ошибок (см. след. пункт) в браузер. 
+		Смотрим ошибку, пробуем исправить, ищем решение в интернете. 
+		Если не получается исправить, скидываем текст ошибки автору в ЛС.
+
+		
+Как включить вывод ошибок PHP
+	
+		Сделать это можно несколькими способами: через панель управления, в php.ini, 
+		в .htaccess или непосредственно в коде. 
+		Проще всего сделать это в коде в index.php или в admin/index.php (если ошибка в админке). 
+		В самом начале файла, сразу после <?php пишем:
+			
+			ini_set('display_errors', 1);
+
+		Обновляем страницу, должен появиться текст ошибки. 
+		После исправления ошибки вывод ошибок нужно отключить.
+
+		
+Работа с поддоменами
+
+		Если вы используете поддомены, установите для них одну сессию, для этого в .htaccess добавьте:
+
+			php_value session.cookie_domain .site.com
+
+		где site.com - ваш сайт
+		Если ваш сайт находится на виртуальном хостинге и при этом php работает в режиме FastCGI, 
+		то установка некоторых переменных невозможна через .htaccess, в том числе и php_value session.cookie_domain.
+		Попробуйте устанавливать данное значение непосредственно в коде скрипта используя функцию ini_set().
+		В самом начале файла, сразу после <?php пишем:
+			
+			ini_set('session.cookie_domain', '.site.com');
+
+		где site.com - ваш сайт
+		В настройках модуля на вкладке "Редиректы" пропишите основной домен (для редиректа по-умолчанию).
+
+		
+Как пользоваться геосообщениями
+
+		1. Создаем в админке модуля геосообщения с определенным ключом (например, phone), 
+		   одному ключу могут соответствовать разные города.
+		2. В любом шаблоне в нужном месте вставляем:
+			<?= $progroman_citymanager->getMessage('phone'); ?>
+			значение по-умолчанию можно передать вторым параметром:
+			<?= $progroman_citymanager->getMessage('phone', '8-800-111-11-11'); ?>		
+ 
+
+Как отключить попап "Угадали город"
+
+		При выводе модуля добавьте атрибут data-confirm="false"
+		<div class="prmn-cmngr" data-confirm="false"><?= $prmn_cmngr ?></div>
+
+
+Вывод модуля через ajax
+
+		Модуль и геосообщения можно загружать отдельным ajax-запросом, например, если у вас стоит модуль кэширования.
+		Вывод модуля:	
+		<div class="prmn-cmngr"></div>
+
+		Вывод геосообщения
+		<span class="prmn-cmngr-message" data-key="phone" data-default="8-800-111-11-11"></span>
+			data-key - ключ геосообщения (обязательный)
+			data-default - значение по-умолчанию (необязательный)
+
+
+Получение данных из модуля (страна, регион, город и др.) в контроллерах
+
+		$data['country_id'] = $this->progroman_city_manager->getCountryId();
+		$data['country_name'] = $this->progroman_city_manager->getCountryName();
+		$data['zone_id'] = $this->progroman_city_manager->getZoneId();
+		$data['zone_name'] = $this->progroman_city_manager->getZoneName();
+		$data['city_name'] = $this->progroman_city_manager->getCityName();
+		$data['short_city_name'] = $this->progroman_city_manager->getShortCityName();
+		$data['postcode'] = $this->progroman_city_manager->getPostcode();
+		$data['fias_id'] = $this->progroman_city_manager->getFiasId();
+		$data['info'] = $this->progroman_city_manager->getFullInfo();
+		
+		
+Опция "Включить замену в title, keywords, description"
+		
+		При включении данной опции в админке товаров, категорий и т.д. в мета-теги можно добавлять шаблоны,
+		которые при выводе заменяются на соответствующий текст:
+		%CITY% - город, %ZONE% - регион, %COUNTRY% - страна, %MSG_key% - геосообщение с ключом key
+		
+
+Опция "Интеграция с модулем "Простая регистрация и заказ Simple""
+
+		При включении модуль Simple будет использовать данные модуля для определения адреса по IP.
+		При включении "автозаполнение города" в настройках Simple будет использоваться база городов модуля.
+
+		
+С полной версией FAQ можно ознакомиться на странице модуля 
+https://opencartforum.com/files/file/3602-geoip-pro-gruppy-pokupateley-raznye-ceny-dlya-gorodov/?tab=tutorials

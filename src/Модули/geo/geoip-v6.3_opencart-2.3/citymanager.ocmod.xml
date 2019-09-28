@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <code>ProgRoman.CityManager</code>
+    <name>ProgRoman - CityManager+GeoIP</name>
+    <version>6.3</version>
+    <author>Roman Shipilov</author>
+    <link>http://opencart.progroman.ru/demo/1/</link>
+
+    <!-- Подключаем модуль -->
+    <file path="catalog/controller/startup/startup.php">
+        <operation>
+            <search index="0"><![CDATA[$code = '';]]></search>
+            <add position="after"><![CDATA[
+        $this->load->controller('extension/module/progroman/city_manager/startup');]]></add>
+        </operation>
+    </file>
+
+    <!-- Загружаем стили и шаблон -->
+    <file path="system/config/catalog.php">
+        <operation>
+            <search><![CDATA['startup/maintenance']]></search>
+            <add position="before"><![CDATA[    'extension/module/progroman/city_manager/load',]]></add>
+        </operation>
+    </file>
+
+    <!-- Добавляем вывод города на странице регистрации -->
+    <file path="catalog/controller/account/register.php">
+        <operation>
+            <search>
+                <![CDATA[$data['city'] = $this->request->post['city'];]]>
+            </search>
+            <add position="after">
+                <![CDATA[		} elseif ($this->session->data['shipping_address']['city']) {
+            $data['city'] = $this->session->data['shipping_address']['city'];]]>
+            </add>
+        </operation>
+    </file>
+
+    <!-- Добавляем вывод города при оформлении заказа с регистрацией -->
+    <file path="catalog/controller/checkout/register.php|catalog/controller/checkout/payment_address.php|catalog/controller/checkout/shipping_address.php">
+        <operation>
+            <search index="0">
+                <![CDATA[$this->load->model('localisation/country');]]>
+            </search>
+            <add position="before">
+                <![CDATA[
+        if (isset($this->session->data['shipping_address']['city'])) {
+            $data['city'] = $this->session->data['shipping_address']['city'];
+        } else {
+            $data['city'] = '';
+        }
+        ]]>
+            </add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/register.tpl|catalog/view/theme/*/template/checkout/payment_address.tpl|catalog/view/theme/*/template/checkout/shipping_address.tpl">
+        <operation>
+            <search>
+                <![CDATA[<input type="text" name="city" value=""]]>
+            </search>
+            <add position="replace">
+                <![CDATA[<input type="text" name="city" value="<?= $city; ?>"]]>
+            </add>
+        </operation>
+    </file>
+
+    <!-- Добавляем $progroman_citymanager в шаблоны -->
+    <file path="system/engine/loader.php">
+        <operation>
+            <search>
+                <![CDATA[foreach ($data as $key => $value)]]>
+            </search>
+            <add position="before">
+                <![CDATA[            $data['progroman_citymanager'] = $this->registry->get('progroman_city_manager');
+			if (!defined('DIR_CATALOG') && strpos($route, 'progroman/city_manager') === false) {
+                $prmn_cmngr = $this->registry->get('prmn_cmngr');
+			    if (is_null($prmn_cmngr)) {
+                    $prmn_cmngr = $this->controller('extension/module/progroman/city_manager');
+                    $this->registry->set('prmn_cmngr', $prmn_cmngr);
+                }
+
+                $data['prmn_cmngr'] = $prmn_cmngr;
+            }
+            ]]>
+            </add>
+        </operation>
+    </file>
+
+    <!-- Интеграция с Simple -->
+    <file path="catalog/model/tool/simplegeo.php" error="skip">
+        <operation error="skip">
+            <search>
+                <![CDATA[if ($mode == self::SIMPLE_GEO_OWN)]]>
+            </search>
+            <add position="replace">
+                <![CDATA[if ($this->progroman_city_manager && $this->progroman_city_manager->checkIntegrationSimple() && $this->progroman_city_manager->getCityName()) {
+	            ModelToolSimpleGeo::$geo = $this->progroman_city_manager->getFullInfo();
+            } elseif ($mode == self::SIMPLE_GEO_OWN)]]>
+            </add>
+        </operation>
+        <operation error="skip">
+            <search>
+                <![CDATA[$query = $this->db->query($sql);]]>
+            </search>
+            <add position="replace">
+                <![CDATA[if ($this->progroman_city_manager && $this->progroman_city_manager->checkIntegrationSimple()) {
+	            $query = $this->progroman_city_manager->autocompleteForSimple($city, 25);
+	            $geoip_used = true;
+            } else {
+                $query = $this->db->query($sql);
+            }]]>
+            </add>
+        </operation>
+    </file>
+
+    <!-- Module "Custom Quick Checkout" -->
+    <file path="catalog/controller/extension/module/d_quickcheckout.php" error="skip">
+        <operation error="skip">
+            <search regex="true">
+                <![CDATA[#this->setSessionValue\('(country_id|zone_id|city|postcode)','(payment|shipping)_address', \$data, \$account, false#]]>
+            </search>
+            <add position="replace">
+                <![CDATA[this->setSessionValue('$1','$2_address', $data, $account, true]]>
+            </add>
+        </operation>
+    </file>
+</modification>
