@@ -104,4 +104,10 @@ $(document).ready(function () {
         ]
     });
 
+    $(".little-image").click(function () {
+        var src = $(this).data("img");
+        $(".big-image").attr("src", src);
+        //$(".zoom").attr("href", src);
+    });
+
 });
