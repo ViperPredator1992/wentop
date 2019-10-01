@@ -104,10 +104,69 @@ $(document).ready(function () {
         ]
     });
 
+    $('.similar-slide').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplaySpeed: 3000,
+        dots: true,
+        prevArrow: $('.similar-slide__left'),
+        nextArrow: $('.similar-slide__right'),
+        responsive: [
+            {
+                breakpoint: 1201,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }                
+            }, 
+            {
+                breakpoint: 981,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+            }
+        ]
+    });
+
+    $('.lookin-slide').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplaySpeed: 3000,
+        dots: true,
+        prevArrow: $('.lookin-slide__left'),
+        nextArrow: $('.lookin-slide__right'),
+        responsive: [
+            {
+                breakpoint: 1201,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }                
+            }, 
+            {
+                breakpoint: 981,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+            }
+        ]
+    });
+
     $(".little-image").click(function () {
         var src = $(this).data("img");
         $(".big-image").attr("src", src);
-        //$(".zoom").attr("href", src);
     });
+
+    $('.product-tab').not('.product-tab-active').click(function () {
+        var index = $(this).index();
+        var content = $('.tabs').eq(index);
+        $(this).addClass('product-tab-active').siblings().removeClass('product-tab-active');
+        $('.tabs').css('display', 'none').eq(index).css('display', 'block');
+    });
+
+    $('.product-tab:first').addClass('product-tab-active');
+    $('.tabs:first').css('display', 'block');
 
 });
