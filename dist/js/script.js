@@ -169,4 +169,23 @@ $(document).ready(function () {
     $('.product-tab:first').addClass('product-tab-active');
     $('.tabs:first').css('display', 'block');
 
+    $('.about-slide').slick({
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        autoplaySpeed: 3000,
+        centerPadding: '100px',
+        dots: true,
+        prevArrow: $('.about-slide__left'),
+        nextArrow: $('.about-slide__right'),
+        responsive: [
+            {
+                breakpoint: 981,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
 });
